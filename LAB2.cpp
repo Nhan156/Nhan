@@ -2,6 +2,25 @@
 #include <cmath>
 #include <string>
 using namespace std;
+//5
+int demSoLuongChuSo(int n) {
+    int count = 0;
+    while (n > 0) {
+        n /= 10;
+        count++;
+    }
+    return count;
+}
+
+int tinhTongCacChuSo(int n) {
+    int sum = 0;
+    while (n > 0) {
+        int chuSo = n % 10;
+        sum += chuSo;
+        n /= 10;
+    }
+    return sum;
+}
 //6
 double tinhCuocTruyCap(int gioBatDau, int gioKetThuc, int thoiGian, double mienGia, double giamGia) {
     double cuocTruyCap = thoiGian * mienGia;
@@ -235,26 +254,21 @@ int main()
     case 5:
     {
         int n;
-        cout << "Nhap vao so n : ";
-        cin >> n;
+    cout << "Nhap so nguyen duong n: ";
+    cin >> n;
 
-        int count = 0;
-        for (int i = 1; n > 0; i++)
-        {
-            n /= 10;
-            count++;
-        }
+    if (n <= 0) {
+        cout << "Nhap khong hop le. Vui long nhap so nguyen duong." << endl;
+    } else {
+        int soLuongChuSo = demSoLuongChuSo(n);
+        int tongCacChuSo = tinhTongCacChuSo(n);
 
-        int sum = 0;
-        for (int i = 0; n > 0; i++)
-        {
-            sum += n % 10;
-            n /= 10;
-        }
-
-        cout << "So luong chu so la : " << n << " la " << count << endl;
-        cout << "Tong cua so " << n << " la : " << sum << endl;
+        cout << "So luong chu so cua " << n << " la: " << soLuongChuSo << endl;
+        cout << "Tong cac chu so cua " << n << " la: " << tongCacChuSo << endl;
     }
+
+    
+}
     break;
     case 6:
     {
